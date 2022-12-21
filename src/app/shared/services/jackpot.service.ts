@@ -1,4 +1,4 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { LobbyItem, GAME_STATE, JP_DEFAULT } from './../interfaces/jackpot-interfaces';
 import { Injectable } from '@angular/core';
 
@@ -9,22 +9,36 @@ export class JackpotService {
 
   private _lobbyItems: LobbyItem[] = [];
   private _gameItems: LobbyItem[] = [];
-  gameItems$: BehaviorSubject<LobbyItem[]> = new BehaviorSubject(this._gameItems);
-  lobby$: BehaviorSubject<LobbyItem[]> = new BehaviorSubject(this._lobbyItems);
-  gameState$: BehaviorSubject<number> = new BehaviorSubject(GAME_STATE.LOBBY);
+  private _gameItems$: BehaviorSubject<LobbyItem[]> = new BehaviorSubject(this._gameItems);
+  private _lobby$: BehaviorSubject<LobbyItem[]> = new BehaviorSubject(this._lobbyItems);
+  private _gameState$: BehaviorSubject<number> = new BehaviorSubject(GAME_STATE.LOBBY);
 
 
   constructor() { }
 
-  updateLobby(items: string[]) {
 
+  get gameItems$(): Observable<LobbyItem[]> {
+    return this._gameItems$.asObservable();
+  }
+  get lobby$(): Observable<LobbyItem[]> {
+    return this._lobby$.asObservable();
+  }
+  get gameState$(): Observable<number> {
+    return this._gameState$.asObservable();
+  }
+
+  updateGameState(state: GAME_STATE): void {
+    this._gameState$.next(state)
+  }
+
+  updateLobby(items: string[]) {
     this._lobbyItems = items.map(item => ({
       name: item,
       weighting: 1,
       // colour: `rgb(${randVal()},${randVal()},${randVal()})`
       colour: `hsl(${this.randVal(300)}, ${this.randVal(100, 50)}%, ${this.randVal(100, 60)}%`
     }))
-    this.lobby$.next(this._lobbyItems)
+    this._lobby$.next(this._lobbyItems)
   }
 
   startGame() {
@@ -35,10 +49,10 @@ export class JackpotService {
       return;
     }
 
-    this.gameState$.next(GAME_STATE.LOADING)
+    this._gameState$.next(GAME_STATE.LOADING)
     this.initialiseGameItems();
     this.selectWinner();
-    this.gameState$.next(GAME_STATE.PLAYING)
+    this._gameState$.next(GAME_STATE.PLAYING)
   }
 
   private initialiseGameItems() {
@@ -71,11 +85,8 @@ export class JackpotService {
 
   private selectWinner() {
     const itemCount = this._gameItems.length;
-    console.log("game length", itemCount);
     const winner = this._gameItems[Math.floor(Math.random() * itemCount + 1)]
     this.setWinner(winner);
-    console.log("winner", { winner });
-    console.log(this._gameItems);
 
   }
 
@@ -88,7 +99,7 @@ export class JackpotService {
     if (newItems) {
       this._gameItems = newItems;
     }
-    this.gameItems$.next(this._gameItems);
+    this._gameItems$.next(this._gameItems);
   }
 
   private randVal(max: number, min?: number) {

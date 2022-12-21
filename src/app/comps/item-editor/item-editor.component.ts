@@ -1,13 +1,13 @@
 import { LobbyItem } from './../../shared/interfaces/jackpot-interfaces';
 import { JackpotService } from './../../shared/services/jackpot.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-item-editor',
   templateUrl: './item-editor.component.html',
   styleUrls: ['./item-editor.component.scss']
 })
-export class ItemEditorComponent implements OnInit {
+export class ItemEditorComponent implements AfterViewInit {
 
   constructor(private jp: JackpotService) { }
 
@@ -15,7 +15,8 @@ export class ItemEditorComponent implements OnInit {
 
   items: LobbyItem[];
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+
   }
 
   onChange() {
@@ -23,6 +24,5 @@ export class ItemEditorComponent implements OnInit {
     const itemsArray = itemsString.split('\n')
     // this.wheelService.updateItemsSimple(itemsArray)
     this.jp.updateLobby(itemsArray);
-
   }
 }

@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.subs$.add(this.jp.gameState$.asObservable().subscribe((state) => {
+    this.subs$.add(this.jp.gameState$.subscribe((state) => {
       this.gameState = state;
     }))
   }

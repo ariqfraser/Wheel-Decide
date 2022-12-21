@@ -17,7 +17,7 @@ export class JackpotLobbyComponent implements OnInit, OnDestroy {
   subs$ = new Subscription();
 
   ngOnInit(): void {
-    this.subs$.add(this.jp.lobby$.asObservable().subscribe((value) => {
+    this.subs$.add(this.jp.lobby$.subscribe((value) => {
       this.lobbyItems = value
     }))
   }

@@ -18,11 +18,11 @@ export class JackpotWheelComponent implements OnInit, OnDestroy {
   start: boolean = false;
 
   ngOnInit(): void {
-    this.subs$.add(this.jp.gameItems$.asObservable().subscribe((items) => {
+    this.subs$.add(this.jp.gameItems$.subscribe((items) => {
       this.items = items.concat(items);
     }))
 
-    this.subs$.add(this.jp.gameState$.asObservable().subscribe((state) => {
+    this.subs$.add(this.jp.gameState$.subscribe((state) => {
       if (state === GAME_STATE.PLAYING) {
         this.start = false;
         setTimeout(() => {
@@ -41,7 +41,7 @@ export class JackpotWheelComponent implements OnInit, OnDestroy {
 
   gameOver() {
     alert(this.items[140].name);
-    this.jp.gameState$.next(GAME_STATE.END)
+    this.jp.updateGameState(GAME_STATE.END)
   }
 
 }

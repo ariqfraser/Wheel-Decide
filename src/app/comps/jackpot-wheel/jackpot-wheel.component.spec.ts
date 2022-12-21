@@ -8,9 +8,9 @@ describe('JackpotWheelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JackpotWheelComponent ]
+      declarations: [JackpotWheelComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
