@@ -1,0 +1,7 @@
+<div class="display-wrapper">
+    <div class="item" *ngFor="let item of lobbyItems; let i = index" [style]="'background-color:'+item.colour">
+        {{item.name}}
+    </div>
+</div>
+<button (click)="startGame()">Start</button>
+<!-- {{lobbyItems | json}} -->

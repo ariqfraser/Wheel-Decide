@@ -1,0 +1,32 @@
+.display-wrapper {
+    width: min(750px, 90%);
+    height: auto;
+    padding: 30px;
+    margin-inline: auto;
+    background-color: #fff;
+
+    font-family: 'roboto';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    overflow-wrap: break-word;
+}
+
+$item-size: 90px;
+
+.item {
+    width: $item-size;
+    height: $item-size;
+    border: 2px solid #fff;
+    background-color: #fff;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-overflow: wrap;
+
+    overflow: hidden;
+}
