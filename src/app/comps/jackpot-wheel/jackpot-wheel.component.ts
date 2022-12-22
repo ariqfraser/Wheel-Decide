@@ -16,7 +16,6 @@ export class JackpotWheelComponent implements OnInit, OnDestroy {
   items: LobbyItem[];
   gameState: GAME_STATE;
   subs$ = new Subscription();
-  start: boolean = false;
 
   @ViewChild('itemWrapper') wheel: ElementRef<HTMLDivElement>
 
@@ -29,11 +28,7 @@ export class JackpotWheelComponent implements OnInit, OnDestroy {
 
     this.subs$.add(this.jp.gameState$.subscribe((state) => {
       if (state === GAME_STATE.PLAYING) {
-        this.start = false;
-        setTimeout(() => {
-          this.start = true;
-          this.startAnimation();
-        }, 0)
+        this.startAnimation();
         setTimeout(() => {
           this.gameOver()
         }, 21500);
@@ -57,7 +52,6 @@ export class JackpotWheelComponent implements OnInit, OnDestroy {
     wheel.style.transform = `translateX(0)`
 
     timer(1000).subscribe(() => {
-      // wheel.style.transitionDelay = "1000ms";
       wheel.style.transition = "transform 20s"
 
       wheel.style.transform = `translateX(-${winnerPos}px)`

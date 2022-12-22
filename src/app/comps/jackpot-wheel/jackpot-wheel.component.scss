@@ -17,17 +17,11 @@ $rand: random(99);
         left: 0;
         transform: translateX(0px);
         transition: transform 20s;
-        transition-delay: 1s;
         transition-timing-function: cubic-bezier(.19, .98, .22, 1);
     }
 
 
     $winnerPos: 28400;
-
-    .start {
-        // transform: translateX(calc(-1rem * $winnerPos + #{attr('random')}px));
-    }
-
 
     .arrow {
         position: absolute;

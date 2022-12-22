@@ -1,5 +1,5 @@
 <div class="wheel-wrapper">
-    <div class="item-wrapper" [class.start]="start" #itemWrapper>
+    <div class="item-wrapper" #itemWrapper>
         <app-box *ngFor="let item of items" [name]="item?.name" [colour]="item?.colour"></app-box>
     </div>
     <div class="arrow"></div>
