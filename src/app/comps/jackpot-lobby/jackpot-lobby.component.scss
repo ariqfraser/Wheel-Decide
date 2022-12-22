@@ -11,6 +11,7 @@
     flex-wrap: wrap;
 
     overflow-wrap: break-word;
+    min-width: 200px;
 }
 
 $item-size: 90px;
@@ -18,7 +19,6 @@ $item-size: 90px;
 .item {
     width: $item-size;
     height: $item-size;
-    border: 2px solid #fff;
     background-color: #fff;
     margin: 0 10px 10px 10px;
 
