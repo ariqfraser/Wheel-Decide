@@ -1,0 +1,74 @@
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    background-color: rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'roboto';
+}
+
+.fade-in {
+    animation: fade-in 1s forwards;
+}
+
+.fade-out {
+    animation: fade-out 1s forwards;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px 24px;
+
+    .card-footer {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .card-body {
+        padding-bottom: 16px;
+        text-align: center;
+    }
+}
+
+.btn {
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: rgb(157, 255, 175);
+    border: none;
+    border-radius: 4px;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(85, 212, 108);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
+}

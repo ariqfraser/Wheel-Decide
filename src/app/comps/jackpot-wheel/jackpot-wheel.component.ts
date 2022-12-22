@@ -1,3 +1,4 @@
+import { DialogService } from './../../shared/services/dialog.service';
 import { Subscription } from 'rxjs';
 import { LobbyItem, GAME_STATE, JP_DEFAULT } from './../../shared/interfaces/jackpot-interfaces';
 import { JackpotService } from './../../shared/services/jackpot.service';
@@ -10,7 +11,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 })
 export class JackpotWheelComponent implements OnInit, OnDestroy {
 
-  constructor(private jp: JackpotService) { }
+  constructor(private jp: JackpotService, private ds: DialogService) { }
 
   items: LobbyItem[];
   gameState: GAME_STATE;
@@ -40,7 +41,7 @@ export class JackpotWheelComponent implements OnInit, OnDestroy {
   }
 
   gameOver() {
-    alert(this.items[140].name);
+    this.ds.open(this.items[140].name + " is the winner!")
     this.jp.updateGameState(GAME_STATE.END)
   }
 

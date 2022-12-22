@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { ItemEditorComponent } from './item-editor.component';
 
-fdescribe('ItemEditorComponent', () => {
+describe('ItemEditorComponent', () => {
   let component: ItemEditorComponent;
   let fixture: ComponentFixture<ItemEditorComponent>;
   let debugComp: any;

@@ -1,0 +1,11 @@
+<div class="overlay" [class.fade-in]="visible" [class.fade-out]="!visible">
+    <div class="card">
+        <div class="card-body">
+            {{ message }}
+        </div>
+        <div class="card-footer">
+            <button class="btn" (click)="close()">OK</button>
+        </div>
+    </div>
+    <app-fireworks (click)="overlayClose($event)"></app-fireworks>
+</div>

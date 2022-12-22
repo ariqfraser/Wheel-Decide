@@ -5,3 +5,4 @@
 </div>
 
 <app-fireworks *ngIf="gameState === 3"></app-fireworks>
+<app-dialog *ngIf="dialogPayload.state" [message]="dialogPayload.message"></app-dialog>
