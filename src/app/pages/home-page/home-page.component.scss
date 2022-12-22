@@ -1,0 +1,21 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+.btn {
+    margin: 1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: rgb(157, 255, 175);
+    border: none;
+    border-radius: 4px;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(85, 212, 108);
+    }
+}

@@ -25,9 +25,4 @@ export class JackpotLobbyComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subs$.unsubscribe();
   }
-
-  startGame() {
-    this.jp.startGame()
-  }
-
 }

@@ -1,7 +1,8 @@
 <div class="layout">
     <app-jackpot-wheel></app-jackpot-wheel>
-    <app-jackpot-lobby></app-jackpot-lobby>
     <app-item-editor></app-item-editor>
+    <button class="btn" (click)="start()">START GAME</button>
+    <app-jackpot-lobby></app-jackpot-lobby>
 </div>
 
 <app-fireworks *ngIf="gameState === 3"></app-fireworks>

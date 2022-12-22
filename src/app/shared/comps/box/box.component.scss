@@ -1,3 +1,5 @@
+$border: none;
+
 div {
     display: flex;
     justify-content: center;
@@ -5,4 +7,17 @@ div {
     font-family: 'roboto';
     overflow: hidden;
     overflow-wrap: break-word;
+    border-right: $border;
+    border-left: $border;
+    position: relative;
+
+    &::after {
+        content: "";
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        background-color: black;
+        z-index: 1;
+    }
 }

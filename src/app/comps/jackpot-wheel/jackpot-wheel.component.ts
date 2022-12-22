@@ -43,19 +43,16 @@ export class JackpotWheelComponent implements OnInit, OnDestroy {
   private startAnimation() {
     const wheel = this.wheel.nativeElement;
     const middleBoxOffset = 600;
-    const randomOffset = Math.floor(Math.random() * 99)
-    const winnerPos = (JP_DEFAULT.BOX_SIZE * JP_DEFAULT.SPINNER_ITEMS - 1000) - middleBoxOffset + randomOffset;
+    const randomOffset = Math.floor(Math.random() * (98 - 2) + 2)
+    const winnerPos = (2 * JP_DEFAULT.BOX_SIZE * JP_DEFAULT.SPINNER_ITEMS - 1000) - middleBoxOffset + randomOffset;
 
     // reset wheel
-    wheel.style.transitionDelay = "0s";
     wheel.style.transition = "transform 0s"
     wheel.style.transform = `translateX(0)`
 
     timer(1000).subscribe(() => {
       wheel.style.transition = "transform 20s"
-
       wheel.style.transform = `translateX(-${winnerPos}px)`
-
     })
   }
 

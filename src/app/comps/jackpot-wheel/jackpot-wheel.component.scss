@@ -15,9 +15,7 @@ $rand: random(99);
         position: absolute;
         display: flex;
         left: 0;
-        transform: translateX(0px);
-        transition: transform 20s;
-        transition-timing-function: cubic-bezier(.19, .98, .22, 1);
+        transition-timing-function: cubic-bezier(0, 1.1, 0, 1);
     }
 
 

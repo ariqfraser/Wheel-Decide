@@ -1,9 +1,8 @@
 .display-wrapper {
     width: min(750px, 90%);
     height: auto;
-    padding: 30px;
     margin-inline: auto;
-    background-color: #fff;
+    background-color: transparent;
 
     font-family: 'roboto';
     display: flex;
@@ -21,7 +20,7 @@ $item-size: 90px;
     height: $item-size;
     border: 2px solid #fff;
     background-color: #fff;
-    margin: 10px;
+    margin: 0 10px 10px 10px;
 
     display: flex;
     justify-content: center;
