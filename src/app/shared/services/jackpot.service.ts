@@ -36,7 +36,7 @@ export class JackpotService {
       name: item,
       weighting: 1,
       // colour: `rgb(${randVal()},${randVal()},${randVal()})`
-      colour: `hsl(${this.randVal(300)}, ${this.randVal(100, 50)}%, ${this.randVal(100, 60)}%`
+      colour: `hsl(${this.randVal(300)}, 75%, 75%`
     }))
     this._lobby$.next(this._lobbyItems)
   }

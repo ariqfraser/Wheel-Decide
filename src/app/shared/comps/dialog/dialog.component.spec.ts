@@ -1,4 +1,3 @@
-import { FireworksComponent } from './../fireworks/fireworks.component';
 import { DialogService } from './../../services/dialog.service';
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
