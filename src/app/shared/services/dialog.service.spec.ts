@@ -22,9 +22,9 @@ describe('DialogService', () => {
     service.dialogState$.subscribe((data) => {
       state = data;
       expect(state.state).toBe(true);
-      expect(state.message).toBe('HELLO WORLD')
-    })
-  })
+      expect(state.message).toBe('HELLO WORLD');
+    });
+  });
 
   it('close() should change state to false', () => {
     service.open('HELLO WORLD');
@@ -33,8 +33,18 @@ describe('DialogService', () => {
     service.dialogState$.subscribe((data) => {
       state = data;
       expect(state.state).toBe(false);
-      expect(state.message).toBe('')
-    })
-  })
+      expect(state.message).toBe('');
+    });
+  });
 
+  describe('close()', () => {
+    it('should change subject state to false', () => {
+      let state: boolean = true;
+      service.dialogState$.subscribe((newState) => {
+        state = newState.state;
+      });
+      service.close();
+      expect(state).toBe(false);
+    });
+  });
 });

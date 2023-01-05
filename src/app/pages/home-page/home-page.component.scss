@@ -14,8 +14,13 @@
     border-radius: 4px;
     transition: 200ms ease-in-out;
     cursor: pointer;
+    user-select: none;
 
     &:hover {
         background-color: rgb(85, 212, 108);
+    }
+
+    &:disabled {
+        cursor: wait;
     }
 }

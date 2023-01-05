@@ -1,7 +1,7 @@
 <div class="layout">
     <app-jackpot-wheel></app-jackpot-wheel>
     <app-item-editor></app-item-editor>
-    <button class="btn" (click)="start()">START GAME</button>
+    <button class="btn" (click)="start()" [disabled]="gameState === 2">START GAME</button>
     <app-jackpot-lobby></app-jackpot-lobby>
 </div>
 
