@@ -69,5 +69,11 @@ describe('JackpotService', () => {
       service.startGame();
       expect(service['selectWinner']).toHaveBeenCalled();
     });
+    it('should call selectWinner 1', () => {
+      spyOn<any>(service, 'selectWinner');
+      service.updateLobby(['a', '3', '3', '3', '3', '3', '3']);
+      service.startGame();
+      expect(service['selectWinner']).toHaveBeenCalled();
+    });
   });
 });
